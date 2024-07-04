@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Webpage</title>
+    <style>
+      .btn-default {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body style='padding: 20px;'>
+    <h1>Welcome to my first webpage</h1>
+    <p>This page does not inherit any css of the embedded component</p>
+    <p>As the embedded component is loaded inside of shadowDom</p>
+    <p>And loaded css is encapsulated and takes an effect, only inside of related shadow dom!</p>
+
+    <button id='open-release-notes' class='btn-default'>Release Notes</button>
+
+    <button id='open-feedback-form'>Feedback form</button>
+
+    <p>
+      Also, if the root page contains elements with the same class names as embedded component has, it doesn't take any effect
+    </p>
+
+    <p>
+      As you can see, the parent element has a different styling for .btn-default, and it does not break "See Details" button in the embedded component
+    </p>
+
+    <!--
+      <script src="https://app.alex.versionlens.com:8090/vl.js?company=d7c2fc53-4cae-4967-883a-eb26e8790d1a&client_id=qjw8Em3VusNBMxd1aXe8DtBO0cPHJ8fEDvKC5cyungc"></script>
+    -->
+    <script src="https://app.clarify-staging.versionlens.com/vl.js?company=59a1f5aa-bf1b-4998-8fbb-fd0df2a3e0d9&client_id=qjw8Em3VusNBMxd1aXe8DtBO0cPHJ8fEDvKC5cyungc"></script>
+
+    <script>
+      window.VersionLens.identifyUser({
+        email: 'testuser@mail.com',
+        // phone: "+16615247972",
+      });
+
+      window.releaseNotesComponent = window.VersionLens.attachComponent({
+        selector: '#open-release-notes',
+        component: 'ReleaseNotes',
+      });
+
+      window.customerFeedbackComponent = window.VersionLens.attachComponent({
+        selector: '#open-feedback-form',
+        component: 'CustomerFeedback',
+      });
+
+      //c2.show();
+
+    </script>
+
+  </body>
+</html>
